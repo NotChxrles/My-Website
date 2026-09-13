@@ -1,143 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="utf-8">
-    <title>Charles</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Charles Chiyumbe, a software developer building practical, maintainable digital products.">
+  <meta name="theme-color" content="#07111a">
+  <title>Charles Chiyumbe | Software Developer</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root { --bg:#07111a;--bg-soft:#0b1824;--surface:rgba(12,29,42,.78);--text:#ecfaff;--muted:#9db4bf;--accent:#00e5ff;--accent-2:#63fff2;--border:rgba(0,229,255,.22);--shadow:0 18px 55px rgba(0,0,0,.28);--nav-bg:rgba(7,17,26,.78) }
+    [data-bs-theme="light"] { --bg:#f5fbfd;--bg-soft:#eaf6f8;--surface:rgba(255,255,255,.86);--text:#102630;--muted:#58717c;--accent:#007e8f;--accent-2:#00a7a1;--border:rgba(0,126,143,.2);--shadow:0 18px 55px rgba(33,78,91,.12);--nav-bg:rgba(245,251,253,.82) }
+    html { scroll-behavior:smooth;scroll-padding-top:88px }
+    body { min-height:100vh;color:var(--text);background:radial-gradient(circle at 12% 6%,rgba(0,229,255,.12),transparent 28rem),radial-gradient(circle at 92% 32%,rgba(99,255,242,.08),transparent 24rem),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;transition:background-color .25s ease,color .25s ease }
+    a { color:var(--accent) } a:hover { color:var(--accent-2) }
+    .skip-link { position:fixed;top:-4rem;left:1rem;z-index:2000 }.skip-link:focus { top:1rem }
+    .navbar { background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px) }
+    .navbar-brand { color:var(--text);letter-spacing:-.03em }.brand-mark { color:var(--accent);text-shadow:0 0 16px rgba(0,229,255,.55) }
+    .nav-link { color:var(--muted);font-weight:600 }.nav-link:hover,.nav-link:focus,.nav-link.active { color:var(--accent)!important }.navbar-toggler { border-color:var(--border) }
+    .theme-toggle,.social-link { display:inline-grid;width:42px;height:42px;place-items:center;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:50%;text-decoration:none;transition:transform .2s ease,border-color .2s ease,color .2s ease }
+    .theme-toggle:hover,.social-link:hover { transform:translateY(-2px);color:var(--accent);border-color:var(--accent) }
+    .hero { min-height:88vh;display:grid;align-items:center;padding:8rem 0 5rem }.eyebrow { color:var(--accent);font-size:.82rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase }
+    .hero h1 { max-width:12ch;margin:.65rem 0 1rem;font-size:clamp(3rem,8vw,6.2rem);font-weight:800;letter-spacing:-.065em;line-height:.94 }.hero h1 span { color:var(--accent);text-shadow:0 0 28px rgba(0,229,255,.28) }
+    .hero-copy { max-width:680px;color:var(--muted);font-size:clamp(1.05rem,2vw,1.25rem) }
+    .profile-wrap { position:relative;width:min(330px,74vw);margin-inline:auto }.profile-wrap::before,.profile-wrap::after { content:"";position:absolute;border:1px solid var(--accent);border-radius:50%;inset:-18px;opacity:.35;animation:pulse 3s ease-in-out infinite }.profile-wrap::after { inset:-38px;opacity:.14;animation-delay:.8s }
+    .profile-photo { position:relative;z-index:1;width:100%;aspect-ratio:1;object-fit:cover;border:2px solid var(--accent);border-radius:50%;box-shadow:0 0 45px rgba(0,229,255,.2) }
+    .btn-accent { color:#001317;background:var(--accent);border:1px solid var(--accent);font-weight:800;box-shadow:0 0 22px rgba(0,229,255,.15) }.btn-accent:hover { color:#001317;background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px) }
+    .btn-ghost { color:var(--text);background:transparent;border:1px solid var(--border);font-weight:700 }.btn-ghost:hover { color:var(--accent);border-color:var(--accent) }
+    section { padding:5.5rem 0 }.section-kicker { color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase }.section-title { margin:.35rem 0 2rem;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.045em }.section-copy { max-width:780px;color:var(--muted) }
+    .glass-card { height:100%;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;box-shadow:var(--shadow);backdrop-filter:blur(12px) }.glass-card h3 { font-size:1.08rem;font-weight:800 }.glass-card p,.glass-card li { color:var(--muted) }
+    .card-icon { display:grid;width:46px;height:46px;margin-bottom:1rem;place-items:center;color:var(--accent);background:rgba(0,229,255,.08);border:1px solid var(--border);border-radius:.85rem;font-size:1.25rem }
+    .skill-list { display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:1rem 0 0;list-style:none }.skill-list li { padding:.4rem .72rem;color:var(--text);background:var(--bg-soft);border:1px solid var(--border);border-radius:999px;font-size:.88rem }
+    .timeline { position:relative;padding-left:1.8rem }.timeline::before { content:"";position:absolute;top:.45rem;bottom:.45rem;left:.35rem;width:1px;background:var(--border) }.timeline-item { position:relative;padding-bottom:2.2rem }.timeline-item:last-child { padding-bottom:0 }.timeline-item::before { content:"";position:absolute;top:.5rem;left:-1.72rem;width:.78rem;height:.78rem;background:var(--accent);border:3px solid var(--bg);border-radius:50%;box-shadow:0 0 14px rgba(0,229,255,.65) }
+    .timeline-meta { color:var(--accent);font-weight:700;font-size:.9rem }.timeline h3 { margin:.2rem 0 .6rem;font-size:1.25rem }
+    .document-frame { width:100%;min-height:68vh;border:0;border-radius:.8rem;background:#fff }.accordion-item { overflow:hidden;background:var(--surface);border:1px solid var(--border)!important;border-radius:1rem!important }.accordion-button { color:var(--text);background:transparent;font-weight:800 }.accordion-button:not(.collapsed) { color:var(--accent);background:rgba(0,229,255,.06);box-shadow:none }.accordion-button:focus { border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(0,229,255,.15) }
+    .contact-panel { padding:clamp(2rem,6vw,4rem);text-align:center;background:linear-gradient(135deg,rgba(0,229,255,.1),var(--surface));border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow) }
+    footer { padding:2rem 0;color:var(--muted);border-top:1px solid var(--border) }.reveal { opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease }.reveal.visible { opacity:1;transform:none }
+    @keyframes pulse { 50% { transform:scale(1.025);opacity:.55 } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto } *,*::before,*::after { animation:none!important;transition:none!important }.reveal { opacity:1;transform:none } }
+    @media (max-width:991.98px) { .hero { min-height:auto;padding-top:7rem;text-align:center }.hero h1,.hero-copy { margin-inline:auto }.hero-actions,.hero-socials { justify-content:center }.profile-wrap { margin-top:4rem } }
+  </style>
 </head>
-<body>
-
-<!-- HEADER -->
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-github"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-linkedin"></i></a></li>
-                </ul>
-            </div>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
+  <a class="skip-link btn btn-accent" href="#main-content">Skip to content</a>
+  <header>
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top" aria-label="Primary navigation">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home"><span class="brand-mark">&lt;</span> Charles <span class="brand-mark">/&gt;</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li><li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li><li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li><li class="nav-item"><a class="nav-link" href="#education">Education</a></li><li class="nav-item"><a class="nav-link" href="#credentials">Credentials</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light theme" title="Change theme"><i class="bi bi-sun-fill" aria-hidden="true"></i></button></li>
+          </ul>
         </div>
+      </div>
     </nav>
-</header>
-<!--Profile Picture-->
-<div class="container mt-5 text-center">
-    <a><img src="charles.jpeg" 
-        class="img-fluid rounded-circle mx-auto d-block" 
-        alt="Profile Picture" 
-        style="width: 200px; height: 200px; object-fit: cover;"
-        rel="noopener noreferrer"
-        draggable="false"
-        oncontextmenu="return false;">
-    </a>
-</div>
-
-<!-- ABOUT ME -->
-<div class="container mt-5">
-    <h2>About Me</h2>
-    Passionate about learning new technologies and building innovative solutions across the tech
-    space. Strong foundation in Python, Django, Docker, SQL/SQLite, HTML, CSS, Bootstrap,
-    Sphinx, and Git. Skilled in creating and deploying web applications with a focus on clean,
-    efficient, and maintainable code. Highly motivated to grow expertise and contribute strong
-    technical ability, problem-solving skills, and adaptability to a dynamic software development
-    team.
-    </div>
-
-<!-- SKILLS -->
-<div class="container mt-5">
-    <h2 class="mt-4">Skills</h2>
-<ul>
-  <li><strong>Programming:</strong> Python, JavaScript, C++, PHP, Java, SQL/SQLite C#, Luau</li>
-  <li><strong>Web Development:</strong> HTML, CSS, Bootstrap, Tailwind, React, AngularJS</li>
-  <!-- <li><strong>Game Development:</strong> Roblox Studio, Unity (C#), Unreal Engine</li> -->
-  <li><strong>Tools:</strong> Git, Docker, GitHub, Visual Studio Code, Blender, Figma</li>
-</ul>
-</div>
-<!-- EXPERIENCE -->
-<div class="container mt-5">
-    <h2 id="experience">Experience</h2>
-    <h6>Outlier AI - (Dec 2024 - Present)</h6>
-    <ul>
-        <li>Work as a freelance AI trainer generating complex prompts and strictly evaluating model responses.</li>
-        <li>Train AI models in code generation, refactoring, with The Python Programming language.</li>
-        <li>Train AI models on Front-end & Back-end web development using JavaScript, HTML, CSS, ReactJs, Swift.</li>
-    </ul>
-</div>
-
-<!-- EDUCATION -->
-<div class="container mt-5">
-    <h2 id="education">Education</h2>
-    <h6>Richfield Graduate Institute</h6>
-    <ul>
-        <li>Diploma in Information Technology (2023 - 2025) + Articulation to Bachelors in Information Technology (2026 - 2027)</li>
-    </ul>
-</div>
-
-<!-- RESUME SECTION -->
-<div class="container mt-5">
-    <h2>Resume</h2>
-
-    <!-- Toggle Button -->
-    <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#cvCollapse" aria-expanded="false">
-        📄 View My Resume
-    </button>
-
-    <!-- Collapsible Embed -->
-    <div class="collapse" id="cvCollapse">
-        <div class="card card-body" oncontextmenu="return false;">
-            <iframe 
-                src="Charles Chiyumbe Resume.pdf#toolbar=0" 
-                width="100%" 
-                height="600px" 
-                style="border: none;"
-                oncontextmenu="return false;">
-            </iframe>
+  </header>
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="container"><div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal">
+          <p class="eyebrow mb-0">Software developer · South Africa</p><h1>I build useful things with <span>code.</span></h1>
+          <p class="hero-copy">I’m Charles Chiyumbe, a software developer focused on clean, maintainable applications and practical solutions across web, data, and AI.</p>
+          <div class="hero-actions d-flex flex-wrap gap-3 mt-4"><a class="btn btn-accent btn-lg px-4" href="#experience">Explore my work <i class="bi bi-arrow-down-right ms-1" aria-hidden="true"></i></a><a class="btn btn-ghost btn-lg px-4" href="Charles Chiyumbe Resume.pdf" download>Download résumé <i class="bi bi-download ms-1" aria-hidden="true"></i></a></div>
+          <div class="hero-socials d-flex gap-2 mt-4" aria-label="Social links"><a class="social-link" href="https://github.com/NotChxrles" target="_blank" rel="noopener noreferrer" aria-label="Charles on GitHub"><i class="bi bi-github" aria-hidden="true"></i></a><a class="social-link" href="https://www.linkedin.com/in/charles-chiyumbe/" target="_blank" rel="noopener noreferrer" aria-label="Charles on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a><a class="social-link" href="mailto:mwchishimba99@gmail.com" aria-label="Email Charles"><i class="bi bi-envelope-fill" aria-hidden="true"></i></a></div>
         </div>
-    </div>
-</div>
-
-<!-- CERTIFICATES -->
-<div class="container mt-5 mb-5">
-    <h2>Certificates</h2>
-    <h6>Software Engineering - HyperionDev Bootcamp (Feb 2023 - May 2024)</h6>
-    <ul>
-        <li>Maintained and achieved a 99% performance rating during a fully remote software engineering bootcamp</li>
-        <li>Learnt Python, Docker, Django, Git, NLP and more.</li>
-    </ul>
-    <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#certCollapse1" aria-expanded="false">
-        📜 View My Certificate
-    </button>
-
-    <!-- Collapsible Embed -->
-    <div class="collapse" id="certCollapse1">
-        <div class="card card-body">
-            <iframe 
-                src="HD Software Engineering Certificate.pdf#toolbar=0"
-                width="100%" 
-                height="600px" 
-                style="border: none;"
-                oncontextmenu="return false;">
-            </iframe>
-        </div>
-    </div>
-</div>
-</div>
-<div class="container mt-5">
-    <h2 id="contact">Contact</h2>
-    <p>Reach out to me via email <a href="mailto:mwchishimba99@gmail.com" target="_blank"><button class="btn btn-outline-danger mb-2" type="button" target="_blank" rel="noopener noreferrer">Here</button></a></p>
-    <p>Visit my LinkedIn <a href="https://www.linkedin.com/in/charles-chiyumbe/" target="_blank" rel="noopener noreferrer"><button class="btn btn-outline-primary mb-2" type="button">Here</button></a></p>
-    <p>Check out my Github <a href="https://NotChxrles@github.com/NotChxrles" target="_blank"><button class="btn btn-outline-dark mb-2" type="button" target="_blank"  >Here</button></a></p>
-</div>
+        <div class="col-lg-5 reveal"><div class="profile-wrap"><img class="profile-photo" src="charles.jpeg" alt="Portrait of Charles Chiyumbe" width="660" height="660" draggable="false"></div></div>
+      </div></div>
+    </section>
+    <section id="about"><div class="container reveal"><p class="section-kicker mb-0">About me</p><h2 class="section-title">Curious by nature. Practical by design.</h2><p class="section-copy fs-5">I enjoy learning new technologies and turning ideas into dependable digital products. My foundation spans Python, Django, JavaScript, SQL, Docker, and modern front-end tools. I care about readable code, thoughtful user experiences, and solving the right problem—not merely shipping more code.</p></div></section>
+    <section id="skills"><div class="container">
+      <div class="reveal"><p class="section-kicker mb-0">Technical toolkit</p><h2 class="section-title">Skills I bring to the table</h2></div>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4 reveal"><article class="glass-card"><div class="card-icon"><i class="bi bi-code-slash" aria-hidden="true"></i></div><h3>Programming</h3><p>Languages used to solve application and data problems.</p><ul class="skill-list"><li>Python</li><li>JavaScript</li><li>C#</li><li>Java</li><li>C++</li><li>PHP</li><li>SQL</li><li>Luau</li></ul></article></div>
+        <div class="col-md-6 col-xl-4 reveal"><article class="glass-card"><div class="card-icon"><i class="bi bi-window" aria-hidden="true"></i></div><h3>Web development</h3><p>Tools for responsive, maintainable full-stack experiences.</p><ul class="skill-list"><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>Tailwind</li><li>React</li><li>AngularJS</li><li>Django</li></ul></article></div>
+        <div class="col-md-6 col-xl-4 reveal"><article class="glass-card"><div class="card-icon"><i class="bi bi-tools" aria-hidden="true"></i></div><h3>Tools & workflow</h3><p>Platforms that help me design, build, and ship effectively.</p><ul class="skill-list"><li>Git</li><li>GitHub</li><li>Docker</li><li>VS Code</li><li>Blender</li><li>Figma</li><li>SQLite</li></ul></article></div>
+      </div>
+    </div></section>
+    <section id="experience"><div class="container"><div class="row g-5">
+      <div class="col-lg-4 reveal"><p class="section-kicker mb-0">Experience</p><h2 class="section-title">Learning through real work</h2><p class="section-copy">Hands-on experience evaluating, improving, and explaining software across multiple technologies.</p></div>
+      <div class="col-lg-8 reveal"><div class="timeline"><article class="timeline-item"><p class="timeline-meta mb-0">December 2024 — Present</p><h3>Freelance AI Trainer · Outlier AI</h3><ul class="mb-0"><li>Create complex technical prompts and evaluate model responses against strict quality criteria.</li><li>Assess code generation, debugging, and refactoring work, with a strong focus on Python.</li><li>Review front-end and back-end solutions using JavaScript, HTML, CSS, React, and Swift.</li></ul></article></div></div>
+    </div></div></section>
+    <section id="education"><div class="container">
+      <div class="reveal"><p class="section-kicker mb-0">Education</p><h2 class="section-title">Built on a strong foundation</h2></div>
+      <div class="row g-4"><div class="col-lg-7 reveal"><article class="glass-card"><div class="card-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div><p class="timeline-meta mb-1">2023 — 2027</p><h3>Richfield Graduate Institute</h3><p class="mb-0">Diploma in Information Technology (2023–2025), with articulation to a Bachelor’s in Information Technology (2026–2027).</p></article></div>
+      <div class="col-lg-5 reveal"><article class="glass-card"><div class="card-icon"><i class="bi bi-award-fill" aria-hidden="true"></i></div><p class="timeline-meta mb-1">February 2023 — May 2024</p><h3>HyperionDev Software Engineering Bootcamp</h3><p class="mb-0">Maintained a 99% performance rating while studying Python, Django, Docker, Git, NLP, and software engineering practices remotely.</p></article></div></div>
+    </div></section>
+    <section id="credentials"><div class="container">
+      <div class="reveal"><p class="section-kicker mb-0">Credentials</p><h2 class="section-title">Résumé & certification</h2></div>
+      <div class="accordion d-grid gap-3" id="credentialAccordion">
+        <div class="accordion-item reveal"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resumePanel" aria-expanded="false" aria-controls="resumePanel"><i class="bi bi-file-earmark-person me-2" aria-hidden="true"></i> View my résumé</button></h3><div id="resumePanel" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion"><div class="accordion-body"><iframe class="document-frame" src="Charles Chiyumbe Resume.pdf#toolbar=0" title="Charles Chiyumbe résumé"></iframe></div></div></div>
+        <div class="accordion-item reveal"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#certificatePanel" aria-expanded="false" aria-controls="certificatePanel"><i class="bi bi-patch-check-fill me-2" aria-hidden="true"></i> View my software engineering certificate</button></h3><div id="certificatePanel" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion"><div class="accordion-body"><iframe class="document-frame" src="HD Software Engineering Certificate.pdf#toolbar=0" title="HyperionDev software engineering certificate"></iframe></div></div></div>
+      </div>
+    </div></section>
+    <section id="contact"><div class="container reveal"><div class="contact-panel"><p class="section-kicker mb-0">Let’s connect</p><h2 class="section-title mb-3">Have a project or opportunity in mind?</h2><p class="section-copy mx-auto mb-4">I’m always interested in thoughtful software projects, collaborations, and opportunities to learn.</p><a class="btn btn-accent btn-lg px-4" href="mailto:mwchishimba99@gmail.com">Send me an email <i class="bi bi-send-fill ms-1" aria-hidden="true"></i></a></div></div></section>
+  </main>
+  <footer><div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2"><span>© <span id="year"></span> Charles Chiyumbe</span><span>Designed and built with care.</span></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (() => {
+      const root=document.documentElement,toggle=document.getElementById('themeToggle'),icon=toggle.querySelector('i');
+      const savedTheme=localStorage.getItem('portfolio-theme');
+      const preferredTheme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+      function applyTheme(theme){root.setAttribute('data-bs-theme',theme);icon.className=theme==='dark'?'bi bi-sun-fill':'bi bi-moon-stars-fill';toggle.setAttribute('aria-label',`Switch to ${theme==='dark'?'light':'dark'} theme`);document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='dark'?'#07111a':'#f5fbfd')}
+      applyTheme(savedTheme||preferredTheme);
+      toggle.addEventListener('click',()=>{const nextTheme=root.getAttribute('data-bs-theme')==='dark'?'light':'dark';localStorage.setItem('portfolio-theme',nextTheme);applyTheme(nextTheme)});
+      document.getElementById('year').textContent=new Date().getFullYear();
+      const navCollapse=document.getElementById('navbarNav');document.querySelectorAll('#navbarNav .nav-link').forEach(link=>link.addEventListener('click',()=>{const instance=bootstrap.Collapse.getInstance(navCollapse);if(instance)instance.hide()}));
+      const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
+    })();
+  </script>
 </body>
 </html>
-
